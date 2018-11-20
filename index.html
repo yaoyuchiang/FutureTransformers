@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reversal Alliance</title>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="topojson.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js" charset="utf-8"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato|Raleway|Slabo+27px');
+
+        body {
+            margin: 0px;
+            background-color: #F6F6F6;
+
+        }
+
+        .main {
+            position: relative;
+        }
+
+        div.up {
+            background-image: url('./background.jpg');
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+
+        .up h1 {
+            font-size: 50px;
+            font-weight: 600;
+            font-family: 'roboto', sans-serif;
+            text-align: left;
+            color: white;
+            left: 80px;
+            top: 150px;
+            width: 1000px;
+            margin: 0 0;
+            position: absolute;
+            box-sizing: border-box;
+
+        }
+
+        .up h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: white;
+            font-family: 'roboto', sans-serif;
+            text-align: left;
+            left: 80px;
+            top: 210px;
+            width: 1000px;
+            margin: 0 0;
+            position: absolute;
+            box-sizing: border-box;
+
+        }
+
+        .up h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            font-family: 'roboto', sans-serif;
+            text-align: left;
+            left: 80px;
+            top: 280px;
+            width: 1000px;
+            margin: 0 0;
+            position: absolute;
+            box-sizing: border-box;
+
+        }
+
+        .up h4 {
+            font-size: 12px;
+            color: white;
+            font-family: 'roboto', sans-serif;
+            text-align: right;
+            left: 180px;
+            top: 600px;
+            width: 1000px;
+            margin: 0 0;
+            position: absolute;
+            box-sizing: border-box;
+        }
+
+        .middle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+
+
+        }
+
+        .middle p {
+            font-family: 'georgia', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: left;
+
+
+
+        }
+
+        .down {
+            position: absolute;
+            display: flex;
+            height: 600px;
+            width: 100%;
+        }
+
+        .left {
+            width: 60%;
+            height: 100vh;
+            overflow: scroll;
+        }
+
+
+        .left h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: black;
+            font-family: 'georgia', sans-serif;
+            text-align: left;
+            margin: 40px 40px;
+        }
+
+        .left p {
+            font-size: 18px;
+            color: black;
+            font-family: 'georgia', sans-serif;
+            text-align: left;
+            margin: 40px 40px;
+        }
+
+        .pic {
+            width: inherit;
+            height: 270px;
+            text-align: center;
+            margin: 40px 40px;
+        }
+
+
+
+        .pic img {
+
+            max-height: 270px;
+            margin: 0 auto;
+            display: inline-block;
+
+
+        }
+
+        .right {
+            width: 40%;
+            position: relative;
+        }
+
+
+        svg {
+            background-color: #F6F6F6;
+            fill: rgba(123, 123, 123, 0.95);
+            display: block;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        .subunit-boundary {
+            fill: none;
+            stroke: #fff;
+            stroke-dasharray: 5, 0;
+            stroke-linejoin: round;
+        }
+
+        text {
+            font-family: 'Slabo 27px', serif;
+            font-size: 12px;
+            font-weight: bold;
+            fill: black;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="up">
+            <h1>
+                The Adventure of The Dream Riders
+            </h1>
+            <h2>
+                60 vulnerable children's 11-day journey of cycling around Taiwan
+            </h2>
+            <h3>
+                Reported / designed by Yao-Yu Chiang
+            </h3>
+            <h4>
+                Photograph by Yu-Sheng Lin
+            </h4>
+        </div>
+        <div class="middle">
+            <p>
+                This journalism project was originally published on United Daily News
+                <br>from July 15th, 2015 to July 25th, 2015.
+            </p>
+        </div>
+        <div class="down">
+            <div class="left" id="scrollingDiv">
+
+                <div class="a1">
+                    <h2>
+                        Day 1, New Taipei - Hsinchu
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0715.jpg" alt="">
+                </div>
+
+
+                <p>
+                    “We will reverse the game for the vulnerable children!” The Future Transformers hosted the Cycling-around-Taiwan Project which will be carried out by the Dream Riders Cycling Team.<br>
+                    <br>
+                    The Dream Riders are formed of 60 vulnerable children from the northern, central, southern, and eastern part of Taiwan, and their aim is to complete the cycling journey in 11 days.
+                    <br><br>
+                    Future Transformers is formed of the House of Dreams from the north, the Need U Sun Foundation from the central part of Taiwan, the Flying Association in the south, and the Kid’s Book House located in the eastern part of Taiwan. Liu Yi-zhong, the chairman of Future Transformers, stated that the four institutions have its own professions and specialties. Through this Project, not only can the children communicate and exchange their experiences and learn together but will find a “second home” and be able to look after each other when visiting other counties or cities.
+                    <br><br>
+                    Before the journey began, pastor Kuo Chih-bin from the Flying Association led the children to do a group prayer. “We all have our own unhappy stories. We pray for a new beginning at each new city we arrive at.”
+                    <br><br>
+                    Although having to wake up at 5 am, the kids were still very energetic. Most of these children are from vulnerable families. Some of them might even bear issues that weren’t supposed to be handled by them. The Future Transformers hopes that through this 1000-kilometer challenge, the kids can be encouraged to build confidence, pursue their dreams bravely, and learn to give as the children are expected to pray for each village and township they arrive at. This project also aims to raise public awareness in supporting and giving attention to vulnerable children.
+                    <br><br>
+                    Most of the children did not have prior experience in cycling around the island. Thus, they practiced for months during weekends. Lin Bei-sheng from the Need U Sun Foundation said they practiced for a total of nine times with the highest record of riding 110 km in one day. “I look forward to cycling uphill the most because it felt awesome! I want to and enjoy feeling exhausted.” Other kids also said excitingly that they look so much forward to the next ten days of the bike ride.
+                    <br><br>
+                    Cycling around Taiwan is more than a challenge to one’s mind and determination; it is also a tough challenge to their body strength. 14 teenagers from the Need U Sun Foundation are soon-to-be 10th graders. Four of them felt unwell when cycling yesterday and had to get onto the support vehicle to rest. Tzu-en, who has suffered from scoliosis and has gone through surgeries, wrote in her diary that she understood her “body condition might not be suitable for this challenge, but still wants to complete this cycling journey with friends.”
+                    <br><br>
+                    When passing Sinfong Township in Hsinchu County, Yen-cheng, nicknamed Black, was lying by the road to rest due to a leg cramp. Realizing the situation, residents nearby kindly brought him ice to relieve the pain. “We practiced for nine times, and I have never encountered such a bad cramp like this”, he said. Even so, Black wishes to rejoin the team as soon as possible. The pain and injuries are not stopping the young riders to complete the mission to cycle around Taiwan.
+                    <br><br>
+
+                </p>
+
+                <div class="a2">
+                    <h2>
+                        Day 2, Hsinchu - Taichung
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0716.jpg" alt="">
+                </div>
+
+
+                <p>
+                    Reported by my colleague Hsin-Tien Lee
+                    <br><br>
+                </p>
+
+                <div class="a3">
+                    <h2>
+                        Day 3, Taichung - Yunlin
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0717.jpg" alt="">
+                </div>
+
+
+                <p>
+                    Yesterday was the third day of the Cycling-around-Taiwan Project hosted by the Future Transformers. 60 vulnerable children left Dajia District in Taichung City and cycled all the way down to Mailiao Township in Yunlin County. Under the extremely heated weather, the young riders seized the pause during red lights gulping down water.
+                    <br><br>
+
+                    Compared to the long uphill at Baishatun in Miaoli County conquered the day before yesterday, the road was much flatter yesterday. As the Dream Riders are gradually getting on track, the ride yesterday was a piece of cake for them. Jie-yi from the House of Dreams said she doesn’t feel anything when cycling on flat roads anymore and is more excited about encountering uphill. “I am conquering!” said Jie-yi confidently.
+                    <br><br>
+
+                    However, the cycling trails are mostly next to railway tracks. In addition, large vehicles such as lorries and dump trucks pass by the riders fairly often, which greatly challenges the leading teachers’ response to crises. Wang Shi-cheng, one of the teachers in lead, said when he was in Taitung, he suffered from serious cramps with both of his legs during the training for this cycling challenge. “I can understand the hardship the kids’ are going through. At that time, I also thought that I cannot and will not give up.”
+                    <br><br>
+
+                    He stated that as leaders, it is their responsibility to protect the kids. It is a stressful work. But whenever he turns around to look at the kids cycling with the best they’ve got and chasing their dreams, he sees the kids’ eyes shining. “At that moment, all the pressure and stress were gone.”
+                    <br><br>
+
+                    Jia-hui, from the Need U Sun Foundation, encountered a relapse on her waist injury on the first day. Yesterday, she went under an X-ray examination in the hospital, and the doctor suggested her to rest for two days. Facing this unexpected situation, Jia-hui decided to take a rest and regain her strength and energy. “I can still stay with my friends anyways, and they also encouraged me!”
+                    <br><br>
+
+                    Bei-sheng, an upcoming sophomore, is outstanding at sports, therefore he was elected as the team captain by his partners at the Need U Sun Foundation. For the past three days, he also developed some thoughts. “I need to do it right and be the role model for everyone.” As four of his partners encountered injuries in three days, he is also trying to figure out how to boost the team morale.
+                    <br><br>
+
+                    Crossing the Zhuoshui River from Dacheng Township in Changhua County to Mailiao Township in Yunlin County, the riders shouted out slogans while cycling. Many passersby and drivers halted to applaud and chant for these young riders.
+                    <br><br>
+                </p>
+
+                <div class="a4">
+                    <h2>
+                        Day 4, Yunlin - Tainan
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0718.jpg" alt="">
+                </div>
+
+
+                <p>
+                    Reported by my colleague Hsin-Tien Lee
+                    <br><br>
+                </p>
+
+                <div class="a5">
+                    <h2>
+                        Day 5, Tainan - Pingtung
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0719.jpg" alt="">
+                </div>
+
+
+                <p>
+                    Reported by my colleague Chi-Ting Yu
+                    <br><br>
+                </p>
+
+                <div class="a6">
+                    <h2>
+                        Day 6, Pingtung - Checheng
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0720.jpg" alt="">
+                </div>
+
+
+                <p>
+                    The Future Transformers’ Cycling-around-Taiwan Project continues. Soon after they left Pingtung City yesterday, they encountered a storm. The sixty riders could only ride very slowly in the rough weather. However, the rain became too heavy. For safety reasons, the Future Transformers decided to cancel the cycling plan in the afternoon, and the riders and their bikes were carried to the next accommodation by support vehicles.
+                    <br><br>
+                    The Central Weather Bureau issued a heavy rain warning in Pingtung yesterday with the instant wind speed to reach level 8 of the Beaufort Scale. The young riders couldn’t even put on their raincoats, thus they ended up cycling without it. “It was super cold! Even though wearing a raincoat felt warmer, but I also felt more uncomfortable with the sweat trapped inside. And the wind was too strong! When riding, the raincoat blown by the wind toward the opposite direction made it even harder to cycle”, said Wu Yen-nong from the Flying Association.
+                    <br><br>
+                    After cycling in the rain in the morning, the teachers were worried that the kids would catch a cold, so they prepared ginger powder to make hot ginger tea for them. But they couldn’t find a place to boil the water. Lin Yu-xuan, who was living nearby in Fangshan, kindly provided her kitchen and big pots so the kids could warm up.
+                    <br><br>
+                    After six days of cycling around the island, the number of casualties only increased. Even kids with experiences in cycling around Taiwan thought the journey was challenging. Lu Shao-cheng from the Kid’s Book House had accomplished cycling around Taiwan once and also once cycled half of the island. He said this time was more dangerous. “I get nervous when cycling into the city. I fell once because I hit the break too suddenly.” But regarding the winds and rains encountered yesterday, “when cycling along the coastline, the waves were huge and pretty!” he said happily.
+
+                    <br><br>
+                </p>
+
+                <div class="a7">
+                    <h2>
+                        Day 7, Checheng - Taitung
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0721.jpg" alt="">
+                </div>
+
+
+                <p>
+                    What does it feel like to challenge the fiendish climb, nicknamed “the devil’s staircase”, when cycling around Taiwan? Sixty vulnerable children cheered each other up while sweating and panting to conquer the most challenging 21 km of the journey. Li Yu-ze from the Need U Sun Foundation expressed that it is amazing to be able to conquer the path with his partners. Yesterday, the dream riders rode a total of 100 km.
+                    <br><br>
+                    The Cycling-around-Taiwan Project led by the Future Transformers continued from Pingtung yesterday. The cyclers rode all the way up to the Shou Ka Cycle Rest Stop on the South-Link High way. At first, the organizer anticipated that it would take the whole morning to complete this section, but the kids were so energetic with some of them reaching the peak in less than two hours.
+                    <br><br>
+                    “YES!” The pioneers who first reached the top of the mountain shouted out excitingly. The first ones were Li Yu-ze, Lin Bei-sheng, Huang Kui-jun, and Zhong Min-hao. Without the experience in cycling around Taiwan, they cycled through the winding mountain roads with a full throttle after departing at 7 am. They fully utilized the power of a team by rotating every 5 minutes to share the effort of breaking the wind. This way, they saved energy and used the least amount of efforts needed to conquer the top of the mountain.
+                    <br><br>
+                    “Four of us riding together warms my heart”, said Li Yu-ze. There is no winning or losing in this task, only a success won together with partners side-by-side.
+                    <br><br>
+                    Both the young riders and the teachers felt that the Shou Ka section on the South-Link Highway was desperately hard. It is without a doubt the toughest route encountered in this cycling journey. A relentless 21km climb challenged the cyclists’ strength and mind. The night before, many students expressed their anxiety for riding this path and worried that they would fall behind.
+                    <br><br>
+                    South-Link Highway is famous among cyclists as one of the three most dangerous cycling routes in Taiwan. Many lorries and dump trucks drove by at a high speed during the fiendish climb, but the most frightening part was the risk of having bike crashes at any moment when cycling downhill speedily in the heavy rain. Zhang Hong-sheng, one of the leading teachers from the Kid’s Book House, stated that it was a blessing that no accidents occurred during this challenge and the success left both the teachers and students a wonderful memory.
+                    <br><br>
+                    The ultimate goal of the Kid’s Book House is for “everyone to complete the cycling-around-Taiwan journey” without getting on the support vehicle. This aim was a difficult task for Zhang Jun-yang who weighs 135 kg. However, he successfully accomplished the mission with the support of his partners.
+                    <br><br>
+                    Before reaching their goal line of the day, the riders encountered a pouring rain. However, the sound of warm and enthusiastic cheers was waiting for them at the goal line.
+                    <br><br>
+                    “I won’t be afraid anymore when hearing ‘cycling around Taiwan’”, said Xu Jie-yi from the House of Dreams. “I hope that the kids can apply the strength and attitude to conquer the Shou Ka section to their schoolwork, family, and their future paths”, said pastor Kuo Chih-bin who participated the whole journey.
+                    <br><br>
+                    Huang Yan-rong, one of the leaders from the Need U Sun Foundation, also expressed that the sections they cycled these few days were very tough with the weather condition being unstable, but he didn’t hear any complaints from the kids. “I saw the growing perseverance and optimism in them.”
+                    <br><br>
+                </p>
+
+                <div class="a8">
+                    <h2>
+                        Day 8, Taitung - Hualien
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0722.jpg" alt="">
+                </div>
+
+
+                <p>
+                    Reported by my colleague Chi-Ting Yu
+                    <br><br>
+                </p>
+
+                <div class="a9">
+                    <h2>
+                        Day 9, Hualien - Yilan
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0723.jpg" alt="">
+                </div>
+
+
+                <p>
+                    The Dream Riders of the Future Transformers have cycled around for more than a half of Taiwan. Yesterday, they set off from Hualien and rode toward the North Coast. The kids, from different institutions in the northern, central, southern, and eastern part of Taiwan, have gradually come to know each other during the Cycling-around-Taiwan journey. Yang Xiao-ling from the Dream of House said that after nine days together, they have become a family and that she “is reluctant to go home”. “I didn’t expect to make so many good friends on this tough journey!”
+                    <br><br>
+                    Although the organizers did not arrange specific events to get the kids to know each other, the students used lunch breaks, dinner time, and the leisure time before bed to make new friends and have fun together.
+                    <br><br>
+                    The journey began from Rueisuei Township, Hualien yesterday. The young riders cycled to Hualien train station under the bright sun. Toward evening, they traveled via train to reach Yilan city. During the two-hour train ride, the kids traveled back and forth between carriages to find their friends from different institutions. They took photos and videos together and had a great time.
+                    <br><br>
+                    This is the first train ride for Yang Jing-long from the Flying Association. He said, “It’s very fun!” When he saw the itinerary a few days ago, he has been looking forward to the train ride. Although feeling a bit tired at first, once he was on the train, he quickly knelt on his seat and stared out through the window, “I want to look at the scenery!” he said excitingly.
+                    <br><br>
+                    Chen Jun-lang, the founder of the Kid’s Book House, stated that most of the kids come from comparably vulnerable and rural areas. They all have some experiences in common throughout their lives. Through exchanging their thoughts and communicating with each other, the kids might feel that they are not alone. In addition, they will be able to support and encourage each other, which is also the major objective of this project.
+                    <br><br>
+                    Chen Jun-lang further indicated that four institutions participated in the Project this year. He hopes that next year and the year after next, each county and city will have one institution participating. It would be like a relay to pass the baton around Taiwan and “spin Taiwan”, allowing the kids who needed assistance to be able to find an institution, a “second home”, whenever and whichever place they visit in Taiwan.
+
+                    <br><br>
+                </p>
+
+                <div class="a10">
+                    <h2>
+                        Day 10, Yilan - Keelung
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0724.jpg" alt="">
+                </div>
+
+
+                <p>
+                    Reported by my colleague Chi-Ting Yu
+                    <br><br>
+                </p>
+
+                <div class="a11">
+                    <h2>
+                        Day 11, Keelung - New Taipei
+                    </h2>
+                </div>
+
+
+                <div class="pic">
+                    <img src="tbmc_news＿0725.jpg" alt="">
+                </div>
+
+
+                <p>
+                    The Cycling-around-Taiwan Project led by the Future Transformers continued. 60 young riders finally arrived at their starting point at Christs’ College located in Tamsui, New Taipei City. They have successfully accomplished the remarkable feat of cycling 1000 km around Taiwan in 11 days. Before reaching the end line, a sudden downpour of rain soaked the young riders, but it didn’t stop the kids for shouting out excitingly: “We did it!”
+                    <br><br>
+                    At first, Shi Yu-han from the Flying Association wasn’t excited about the cycling journey at all. She was always behind during the pre-training and had thought of giving up. However, as the journey began, Shi Yu-han has been on a full throttle to keep up with the team. With the encouragement from her partners, she is delighted to have accomplished this mission.
+                    <br><br>
+                    Yu-han even showed us the tan line on her face. Her partners got her a new nickname: “Batman”, because half of her face has gotten very tan. But she didn’t mind at all and kept saying that “This is the proof of me completing the cycling-around-Taiwan!” Yu-han is very proud of herself and wants to cycle around Taiwan again next year.
+                    <br><br>
+                    Liu Yi-zhong, the Chairman of the Future Transformers, stated that the long journey of cycling 1000 km in 11 days resembles the life path of the children which needed the company of family, teachers, and friends. Accompanying kids requires patience, strength, and time. Liu Yi-zhong also said that the Cycling-around-Taiwan Project provided the young riders with the opportunity to interact and communicate with other students from different regions. Also, they had the opportunity to see beautiful places in Taiwan which have “opened up the kids’ heart.”
+                    <br><br>
+                    When reaching the goal, the kids from different institutions shouted and chanted and hugged each other to celebrate the accomplishment of this remarkable feat. Chen Jun-lang, the founder of The Kid’s Book House in Taitung, said most of the kids are from comparably vulnerable and rural areas, which sometimes makes it hard for the kids to make friends. Through this 11-day journey, the kids have realized the common experiences in each other’s lives, which allow them to support and accompany each other.
+
+                    <br><br>
+                </p>
+
+
+
+            </div>
+            <div class="right">
+                <svg width="400" height="600"></svg>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+        var projection = d3.geo.mercator().center([123, 24]).scale(8800);
+        var path = d3.geo.path().projection(projection);
+
+
+        d3.json("taiwanMap.json", function(mapDataSet) {
+            d3.csv("location.csv", function(lDataSet) {
+                bind(mapDataSet, lDataSet);
+                render(mapDataSet, lDataSet);
+            });
+
+        });
+
+        function bind(topoRoot, lDataSet) {
+            var projection = d3.geo.mercator().center([123, 24]).scale(8800);
+            var path = d3.geo.path().projection(projection);
+            var geoRoot = topojson.feature(topoRoot, topoRoot.objects["COUNTY_MOI_1070516"]);
+            var selection = d3.select("svg").selectAll("path").data(geoRoot.features);
+            selection.enter().append("path").classed("map-boundary", true).attr("d", path);
+            selection.exit().remove();
+
+
+        }
+
+        function render(mapDataSet, lDataSet) {
+
+            d3.selectAll("path")
+                .attr({
+                    fill: function(d, i) {
+                        return "#5DAC81";
+                    }
+                })
+
+            var line = d3.svg.line()
+                .x(function(d) {
+                    return projection([+d["x"],
+                        +d["y"]
+                    ])[0];
+                })
+                .y(function(d) {
+                    return projection([+d["x"],
+                        +d["y"]
+                    ])[1];
+                })
+                .interpolate('cardinal-closed');
+
+            //#3A3226
+
+            d3.select("svg").append("path")
+                .attr("class", "cycleRoute")
+                .attr({
+                    'd': line(lDataSet),
+                    'stroke': '#3A3226',
+                    'stroke-width': '3px',
+                    'fill': 'none',
+                    "display": "none",
+
+                })
+
+            var selection_c = d3.select("svg").selectAll("circle").data(lDataSet);
+
+            selection_c.enter().append("circle");
+            selection_c.exit().remove();
+
+            d3.selectAll("circle")
+                .attr({
+
+                    cx: function(d) {
+                        return projection([+d["x"],
+                            +d["y"]
+                        ])[0]
+                    },
+                    cy: function(d) {
+                        return projection([+d["x"],
+                            +d["y"]
+                        ])[1]
+                    },
+                    r: 4,
+                    fill: "#F7C242"
+
+                })
+
+            var selection_t = d3.select("svg").selectAll("text").data(lDataSet);
+
+            selection_t.enter().append("text");
+            selection_c.exit().remove();
+
+            d3.selectAll("text")
+                .attr({
+
+                    x: function(d, i) {
+                        if (i == 10) {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] + 5
+                        } else if (i == 9) {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] - 31
+                        } else if (i == 8) {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] - 42
+                        } else if (i == 6) {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] - 60
+                        } else if (i == 5) {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] - 55
+                        } else if (i == 2) {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] - 52
+                        } else {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] - 37
+                        }
+                    },
+                    y: function(d, i) {
+                        if (i != 0 && i != 11) {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[1] - 8
+                        } else {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[1] - 12
+                        }
+
+                    },
+
+
+                }).text(function(d) {
+                    return d.name
+                })
+
+
+
+            //            window.addEventListener('scroll', _.throttle(windowScroll, 200));
+            //            
+            function myScript(lDataSet) {
+                var scrollY = document.getElementById('scrollingDiv').pageYOffset || document.getElementById('scrollingDiv').scrollTop;
+
+                var linePath = d3.selectAll("path.cycleRoute").attr({
+                    'display': 'show'
+                });
+                var totalLength = linePath.node().getTotalLength();
+
+                var divLength = document.getElementById('scrollingDiv').scrollHeight;
+
+                console.log(divLength);
+
+                console.log(' Scroll Y:' + scrollY);
+
+                if (scrollY <= (divLength * 0.152)) {
+
+                    var sectionLength = 190 * scrollY / (divLength * 0.152);
+
+                    console.log(sectionLength);
+
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - sectionLength)
+
+
+                } else if ((divLength * 0.152) < scrollY && scrollY <= (divLength * 0.198)) {
+
+                    var sectionLength = (300 - 190) * (scrollY - (divLength * 0.152)) / ((divLength * 0.198) - (divLength * 0.152));
+
+
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (190 + sectionLength))
+
+                } else if ((divLength * 0.198) <= scrollY && scrollY <= (divLength * 0.325)) {
+
+                    var sectionLength = (410 - 300) * (scrollY - (divLength * 0.198)) / ((divLength * 0.325) - (divLength * 0.198));
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (300 + sectionLength))
+
+                } else if ((divLength * 0.325) <= scrollY && scrollY <= (divLength * 0.371)) {
+
+                    var sectionLength = (510 - 410) * (scrollY - (divLength * 0.325)) / ((divLength * 0.371) - (divLength * 0.325));
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (410 + sectionLength))
+
+                } else if ((divLength * 0.371) <= scrollY && scrollY <= (divLength * 0.417)) {
+
+                    var sectionLength = (610 - 510) * (scrollY - (divLength * 0.371)) / ((divLength * 0.417) - (divLength * 0.371));
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (510 + sectionLength))
+
+                } else if ((divLength * 0.417) <= scrollY && scrollY <= (divLength * 0.517)) {
+
+                    var sectionLength = (720 - 610) * (scrollY - (divLength * 0.417)) / ((divLength * 0.517) - (divLength * 0.417));
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (610 + sectionLength))
+
+                } else if ((divLength * 0.517) <= scrollY && scrollY <= (divLength * 0.676)) {
+
+                    var sectionLength = (870 - 720) * (scrollY - (divLength * 0.517)) / ((divLength * 0.676) - (divLength * 0.517));
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (720 + sectionLength))
+
+                } else if ((divLength * 0.676) <= scrollY && scrollY <= (divLength * 0.722)) {
+
+                    var sectionLength = (1085 - 870) * (scrollY - (divLength * 0.676)) / ((divLength * 0.722) - (divLength * 0.676));
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (870 + sectionLength))
+
+                } else if ((divLength * 0.722) <= scrollY && scrollY <= (divLength * 0.84)) {
+
+                    var sectionLength = (1150 - 1085) * (scrollY - (divLength * 0.722)) / ((divLength * 0.84) - (divLength * 0.722));
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (1085 + sectionLength))
+
+                } else if ((divLength * 0.84) <= scrollY && scrollY <= (divLength * 0.887)) {
+
+                    var sectionLength = (1200 - 1150) * (scrollY - (divLength * 0.84)) / ((divLength * 0.887) - (divLength * 0.84));
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength - (1150 + sectionLength))
+                } else {
+
+                    linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", 10)
+                }
+            }
+
+            document.getElementById('scrollingDiv').addEventListener("scroll", myScript);
+
+
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>

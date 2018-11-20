@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reversal Alliance</title>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="topojson.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato|Raleway|Slabo+27px');
+
+        body {
+            margin: 0px;
+            background-color: #F6F6F6;
+
+        }
+
+        .main {
+            position: relative;
+        }
+
+        div.up {
+            background-image: url('./IMG_0689.jpg');
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+
+        }
+
+        .up h1 {
+            font-size: 32px;
+            font-weight: 600;
+            font-family: 'Lato', sans-serif;
+            text-align: center;
+            margin: 0px;
+            padding-top: 300px;
+
+        }
+
+        .down {
+            position: absolute;
+            display: flex;
+            height: 600px;
+            width: 100%;
+        }
+
+        .left {
+            width: 60%;
+            height: 100vh;
+            width: 60%;
+            overflow: scroll;
+        }
+
+        .right {
+            width: 40%;
+            position: relative;
+        }
+
+
+        svg {
+            background-color: #F6F6F6;
+            fill: rgba(123, 123, 123, 0.95);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .subunit-boundary {
+            fill: none;
+            stroke: #fff;
+            stroke-dasharray: 5, 0;
+            stroke-linejoin: round;
+        }
+
+        text {
+            font-family: 'Slabo 27px', serif;
+            font-size: 10px;
+            font-weight: bold;
+            fill: black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="up">
+            <h1>
+                Reversal Alliance Project
+            </h1>
+        </div>
+        <div class="down">
+            <div class="left">
+                <p>
+                    Being the First Transgender Man to Come Out Publicly in Islamic Kosovo
+
+                    Interviewed/written by Chiang Yao-Yu
+
+                    Turning into an alley across from the Newborn Plaza in Pristina, the capital of Kosovo, you will find the White Tree Hostel & Café. When we walked into the yard from the main entrance, Lendi Mustafa was busy taking orders for customers. Upon spotting us, Lendi gave us a bashful smile. He looked just like one of the good-behaving and shy boys from high school.
+
+                    The customers sitting next to us showed effeminacy. A rainbow flag was in the glass jar sitting on top of the front desk. “This is probably the gayest place in Kosovo. Everyone can simply be themselves here,” said Lendi.
+
+                    Lendi Mustafa, the organizer for Kosovo’s first LGBTQ Pride Parade, is the first transgender man to come out publicly in Kosovo. He works in the Center for Equality and Liberty (CEL), a local LGBTQ organization in Kosovo, and a part-time waiter at this gay-friendly café. When we talked about the reason why he came out publicly, the shy boy expression on Lendi’s face disappeared and in replacement was a determined look. “Because I wanted to let other transgender people know that they are not alone.”
+
+                    There are more than hundreds of ways to come out. In 1986, Chi Chia-wei, a longtime gay rights campaigner in Taiwan, became the first gay to come out in Taiwan by organizing a press conference in front of a McDonald’s. He announced a sincere 8000-word statement, An Appeal to the General Public and to the Homosexual People, in a manner as if he was launching a revolution. 30 years later, in a faraway land situated in the middle of the Balkans, Lendi also went in front of the cameras ready to shock the conservative society. However, his decision to come out was more of going with the flow rather than executing a thorough plan.
+
+                    “A friend of mine is a documentary director and he was doing a featured documentary on LGBTQ in Kosovo. He asked me if I was willing to do an interview and I agreed right away,” said Lendi. Just before the shooting, the director told Lendi that his face won’t be filmed and the recorded voice will also be processed. “At that moment, I simply had one thought: why should I hide? So, I asked him to film me as a whole, including my face. He was very worried at first, but I insisted. So…that’s how it went.”
+
+                    The documentary was broadcasted on the TV later making Lendi officially the first transgender person to come out publicly in Kosovo. Then, threatening messages began to swarm into his mailbox. “I don´t know why, but I’m still living and thriving,” said Lendi with a sly smile this time instead of the previous bashful one.
+
+                    As for what was written in the threatening messages? “Oh, all kinds. ‘I’m going to kill you’, ‘Burn you to death’, ‘sexual pervert’, ‘You are a malignant tumor in the society’, etc.,” he said it plainly as if he didn’t really care. “These were all anticipated. After all, Kosovo is an Islamic country.”
+
+                    Indeed, Kosovo is 96% Muslim, the highest percentage of the Islamic population among European countries. However, first-time foreign visitors might be surprised by the vibrant nightlife in Pristina. On the brightly lit Fehmi Agani street, you can see young women wearing short skirts and showing their tattoos on their arms in crowded bars are drinking a glass of beer to enjoy a Wednesday evening.
+
+                    Unlike many countries in the Middle East, Kosovo is a secular state, which means obeying Sharia Laws is a personal choice instead of a general law applying to the public. The only Islamic political party in Kosovo, the Justice Party (Partia e Drejtësisë), received a mere 1.7% of the vote in the parliamentary election in 2007. In the local election held last year, the Justice Party only had one candidate running for the mayor in a small town, Gjilan, which is situated in the southeastern part of the country, and the party received the fewest number of votes.
+
+                    However, even though Kosovo is a secular state, the LGBTQ community still hides deep inside the closet due to the influence of the conservative Islamic culture.
+
+                    The Kosovar Parliament amended the Constitution to ban discrimination based on sexual orientation as early as 2004. In 2015, amendments were made to the Law on Protection against Discrimination in order to recognize gender identity. However, with the absence of sex education, most people are still unfamiliar with the LGBTQ community.
+
+                    The National Democratic Institute for International Affairs (NDI) in the US conducted a survey in 2015. The results showed that Kosovo is the most homophobic country in the Balkans with only 3% of the people have had interactions with the LGBTQ community. In addition, 81% of the LGBTQ community expressed that they have encountered discrimination due to their sexual orientation or gender identity.
+
+                    “When I was young, I struggled to discover my gender identity by myself. I couldn’t find any information in Albanian on websites or in books. Not to mention the school. There is simply no sex education at school and many teachers were biased toward the LGBTQ. I didn’t even know that transgenders existed. All I know was: “I like girls.” Lendi once had a discussion with a few of her friends who had the same trouble. One of them said, “What if we are not lesbians? What if we are something else?”
+
+                    At last, a piece of YouTube video introducing transgender people answered Lendi’s question about who he was. It was the first time Lendi was exposed to this type of information and made him realize that he was a transgender person. At that moment, Lendi felt that he had this great responsibility to help other transgenders. Lendi told himself that if the society didn’t allow the transgender people to know who they are, he would be the one to help them know who they are.
+
+                    Lendi is one of the few lucky people. He had a fully supportive mother while his friends, who are minority sexual and gender, were kicked out of the house and faced challenges during job hunting. “My mom didn’t have a clue about what is gender identity or sexual orientation, but she was willing to learn to understand these for me. The only thing she asked of me was not to regret the choices which I have made.”
+
+                    However, life isn’t smooth. “After coming out, I lost a sister. She is a devoted Muslim and she thought I had brought shame to her.” They haven’t spoken since.
+
+                    Maybe it is because of his comparably lucky yet hurtful personal experience that made him an understanding person toward other people’s pain and it also led Lendi to become the pioneer in the LGBT rights movement. After coming out publicly, with that increasing courage bit by bit from fighting each battle, he went on to do something even bigger——Lendi organized the first Gay Pride parade in Kosovo.
+
+                    “On May 17th, 2017, the International Day Against Homophobia, we originally planned to organize a parade to advocate gay’s rights. However, due to some political reasons, we were forced to delay the parade until October 10th of the same year. When discussing with my partners in September, we thought: why not turn it into a Gay Pride parade then?” said Lendi, with smiling eyes.
+
+                    Therefore, in less than a month, Lendi and his team began to plan the parade day and night, such as deciding the theme of the parade as “In the Name of Love,” appearing on TV to promote the parade, designing all kinds of flyers and leaflets, etc. They didn’t expect many participants, but thousands of people turned up on the street on the day of the parade. Wrapped in the rainbow flag, Lendi stood on the stage and said, “I am here, not to speak up for myself, but to speak up for those who aren’t able to do so.”
+
+                    Another going with the flow, the first-ever Gay Pride parade staged in the most homophobic country in the Balkans went smoothly and ended successfully. However, if it were not for the courage to stand up to the viciousness that might have happened at any time, nor the confidence to conquer all difficulties, no matter how great the opportunities were, the success of the parade could not have been possible.
+
+                    One of the highlights was the presence of the incumbent president Hashim Thaçi. He stated in an interview that “Kosovo is a country established on equality and freedom. Any act to make people feel threatened or fear is unacceptable.”
+
+                    But, does this mean that the Kosovar government supports the gay rights movement? Lendi is not so optimistic. In fact, no political figures have had actual interaction or communication with the local LGBTQ communities. “The attendance of the president was more of a show for other European ambassadors,” said Lendi. Kosovo is actively trying to make its way into the European Union and being LGBTQ-friendly is a value supported by the EU.
+
+                    “A lot of people in the society are actually against homosexuals. However, due to the complicated political environment throughout these years, many people are unwilling to show up on the street to participate in social movements unless there is no other way.” Lendi worries that as the issue of LGBTQ continues to be brought up, people who oppose the LGBTQ community will also begin to come together.
+
+                    Lendi and his organization are currently preparing for the second Gay Pride parade. “The last parade was an ambush. People who are against this issue did not have the time to react. This year would be the second time for hosting the parade, and I’m guessing that they might also be prepared”, he said conservatively. However, the continuous discussion on one issue will not only strengthen the opponents but will further enhance the LGBTQ community to take back their power of discourse.
+
+                    The fearful haze of wars that hovered above the country in the 90s has dissipated. What takes place is a gradual formation of a diverse and democratic society. This small yet ambitious Balkan country is changing the world’s impression on her.
+
+                    After leaving Kosovo and returning to Taiwan, we happened to face the most heated time for launching the petition on marriage equality referendums. On the news, Chi Chia-wei stood in front of the Central Election Commission building with nearly a million petitions stacked high behind him. It took him more than 30 years to turn this journey from one person walking to more than ten thousand people joining him. That was almost half of his entire life.
+
+                    I asked Lendi his thoughts on the future of the LGBTQ’s rights movement. He simply said, “I don’t tend to think about what might happen in the future. I simply focus on doing what I’m doing now”. It might have seemed like a mere young man’s insistence, but these words not only made him looked fierce, but also added a touch of coolness to his already powerful personal charisma.
+
+                    The journey ahead is a long, rocky road, and Kosovo has just begun to see the lights of the dawn. Hopefully, the people in Kosovo will walk on this journey faster and better than we did.
+
+                </p>
+            </div>
+            <div class="right">
+                <svg width="400" height="600"></svg>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+        var projection = d3.geo.mercator().center([123, 24]).scale(8000);
+        var path = d3.geo.path().projection(projection);
+
+
+        d3.json("taiwanMap.json", function(mapDataSet) {
+            d3.csv("location.csv", function(lDataSet) {
+                bind(mapDataSet, lDataSet);
+                render(mapDataSet, lDataSet);
+            });
+
+        });
+
+        function bind(topoRoot, lDataSet) {
+            var projection = d3.geo.mercator().center([123, 24]).scale(8000);
+            var path = d3.geo.path().projection(projection);
+            var geoRoot = topojson.feature(topoRoot, topoRoot.objects["COUNTY_MOI_1070516"]);
+            var selection = d3.select("svg").selectAll("path").data(geoRoot.features);
+            selection.enter().append("path").classed("map-boundary", true).attr("d", path);
+            selection.exit().remove();
+
+
+        }
+
+        function render(mapDataSet, lDataSet) {
+
+            d3.selectAll("path")
+                .attr({
+                    fill: function(d, i) {
+                        return "#5DAC81";
+                    }
+                })
+
+            var line = d3.svg.line()
+                .x(function(d) {
+                    return projection([+d["x"],
+                        +d["y"]
+                    ])[0];
+                })
+                .y(function(d) {
+                    return projection([+d["x"],
+                        +d["y"]
+                    ])[1];
+                })
+                .interpolate('cardinal-closed');
+
+
+            d3.select("svg").append("path")
+                .attr("class", "cycleRoute")
+                .attr({
+                    'd': line(lDataSet),
+                    'stroke': 'grey',
+                    'stroke-width': '2px',
+                    'fill': 'none',
+                    'stroke-dasharray': 10,
+                })
+
+            var selection_c = d3.select("svg").selectAll("circle").data(lDataSet);
+
+            selection_c.enter().append("circle");
+            selection_c.exit().remove();
+
+            d3.selectAll("circle")
+                .attr({
+
+                    cx: function(d) {
+                        return projection([+d["x"],
+                            +d["y"]
+                        ])[0]
+                    },
+                    cy: function(d) {
+                        return projection([+d["x"],
+                            +d["y"]
+                        ])[1]
+                    },
+                    r: 4,
+                    fill: "#F7C242"
+
+                })
+
+            var selection_t = d3.select("svg").selectAll("text").data(lDataSet);
+
+            selection_t.enter().append("text");
+            selection_c.exit().remove();
+
+            d3.selectAll("text")
+                .attr({
+
+                    x: function(d, i) {
+                        if (i != 10) {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] - 30
+                        } else {
+                            return projection([+d["x"],
+                                +d["y"]
+                            ])[0] + 5
+                        }
+                    },
+                    y: function(d) {
+                        return projection([+d["x"],
+                            +d["y"]
+                        ])[1] - 6
+                    },
+
+
+                }).text(function(d) {
+                    return d.name
+                })
+
+            var linePath = d3.selectAll("path.cycleRoute");
+            var totalLength = linePath.node().getTotalLength();
+
+            linePath.attr("stroke-dasharray", totalLength + " " + totalLength)
+                .attr("stroke-dashoffset", totalLength)
+                .transition()
+                .duration(5000)
+                .ease("linear")
+                .attr("stroke-dashoffset", 0);
+
+
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
